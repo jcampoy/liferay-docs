@@ -2,8 +2,8 @@
 
 ## Requirements [](id=requirements)
 
-- Xcode 7.2
-- iOS 9 SDK
+- Xcode 9.0
+- iOS 11 SDK
 - Liferay 7.0 CE, Liferay DXP 
 - Liferay Screens Compatibility Plugin 
   ([CE](http://www.liferay.com/marketplace/-/mp/application/54365664) or 
@@ -13,12 +13,28 @@
 
 ## Compatibility [](id=compatibility)
 
-- iOS 8 and above
+- iOS 9 and above
+
+## Xamarin Requirements [](id=xamarin-requirements)
+
+- Visual Studio 7.2
+- Mono .NET framework 5.4.1.6
 
 ## Features [](id=features)
 
 Comment Display Screenlet can show one comment of an asset in a Liferay 
 instance. It also lets the user update or delete the comment. 
+
+## JSON Services Used [](id=json-services-used)
+
+Screenlets in Liferay Screens call JSON web services in the portal. This 
+Screenlet calls the following services and methods.
+
+| Service | Method | Notes |
+| ------- | ------ | ----- |
+| `ScreenscommentService` (Screens compatibility plugin) | `getCommentWithCommentId` |  |
+| `ScreenscommentService` (Screens compatibility plugin) | `updateComment` |  |
+| `CommentmanagerjsonwsService` | `deleteComment` |  |
 
 ## Module [](id=module)
 

@@ -2,18 +2,34 @@
 
 ## Requirements [](id=requirements)
 
-- Xcode 7.3
-- iOS 9 SDK
+- Xcode 9.0
+- iOS 11 SDK
 - Liferay Portal 6.2 (CE or EE), Liferay 7.0 CE, Liferay DXP 
 
 ## Compatibility [](id=compatibility)
 
-- iOS 7 and above
+- iOS 9 and above
+
+## Xamarin Requirements [](id=xamarin-requirements)
+
+- Visual Studio 7.2
+- Mono .NET framework 5.4.1.6
 
 ## Features [](id=features)
 
 The User Portrait Screenlet shows the user's portrait from Liferay Portal. If 
 the user doesn't have a portrait configured, a placeholder image is shown.
+
+## JSON Services Used [](id=json-services-used)
+
+Screenlets in Liferay Screens call JSON web services in the portal. This 
+Screenlet calls the following services and methods.
+
+| Service | Method | Notes |
+| ------- | ------ | ----- |
+| `UserService` | `getUserById` |  |
+| `UserService` | `getUserByEmailAddress` |  |
+| `UserService` | `getUserByScreenName` |  |
 
 ## Module [](id=module)
 

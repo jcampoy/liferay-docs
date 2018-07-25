@@ -16,11 +16,28 @@
 
 - Android SDK 4.0 (API Level 15) and above
 
+## Xamarin Requirements [](id=xamarin-requirements)
+
+- Visual Studio 7.2
+- Mono .NET framework 5.4.1.6
+
 ## Features [](id=features)
 
 The Web Content Display Screenlet shows web content elements in your app, 
 rendering the web content's inner HTML. The Screenlet also supports i18n, 
-rendering contents differently depending on the device's locale.
+rendering contents differently depending on the device's locale. 
+
+## JSON Services Used [](id=json-services-used)
+
+Screenlets in Liferay Screens call JSON web services in the portal. This 
+Screenlet calls the following services and methods.
+
+| Service | Method | Notes |
+| ------- | ------ | ----- |
+| `DDMStructureService` | `getStructure` |  |
+| `JournalArticleService` | `getArticle` |  |
+| `JournalArticleService` | `getArticleContent` |  |
+| `ScreensddlrecordService` (Screens compatibility plugin) | `getJournalArticleContent` | With `entryQuery` |
 
 ## Module [](id=module)
 

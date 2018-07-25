@@ -2,8 +2,8 @@
 
 ## Requirements [](id=requirements)
 
-- Xcode 7.2
-- iOS 9 SDK
+- Xcode 9.0
+- iOS 11 SDK
 - Liferay 7.0 CE, Liferay DXP 
 - Liferay Screens Compatibility Plugin 
   ([CE](http://www.liferay.com/marketplace/-/mp/application/54365664) or 
@@ -13,12 +13,29 @@
 
 ## Compatibility [](id=compatibility)
 
-- iOS 8 and above
+- iOS 9 and above
+
+## Xamarin Requirements [](id=xamarin-requirements)
+
+- Visual Studio 7.2
+- Mono .NET framework 5.4.1.6
 
 ## Features [](id=features)
 
 Audio Display Screenlet displays an audio file from a Liferay instance's 
 Documents and Media Library. 
+
+## JSON Services Used [](id=json-services-used)
+
+Screenlets in Liferay Screens call JSON web services in the portal. This 
+Screenlet calls the following services and methods.
+
+| Service | Method | Notes |
+| ------- | ------ | ----- |
+| `ScreensassetentryService` (Screens compatibility plugin) | `getAssetEntry` | With `entryId` |
+| `ScreensassetentryService` (Screens compatibility plugin) | `getAssetEntry` | With `classPK` and `className` |
+| `ScreensassetentryService` (Screens compatibility plugin) | `getAssetEntries` | With `entryQuery` |
+| `ScreensassetentryService` (Screens compatibility plugin) | `getAssetEntries` | With `companyId`, `groupId`, and `portletItemName` |
 
 ## Module [](id=module)
 
@@ -52,7 +69,7 @@ Here are the offline mode policies that you can use with this Screenlet:
 
 - `assetEntryId`
 
-If you don’t use `assetEntryId`, you must use these attributes: 
+If you don't use `assetEntryId`, you must use these attributes: 
 
 - `className`
 - `classPK`
@@ -63,7 +80,7 @@ If you don’t use `assetEntryId`, you must use these attributes:
 |-----------|-----------|-------------|
 | `assetEntryId` | `number` | The primary key of the audio file. | 
 | `className` | `string` | The audio file's fully qualified class name. Since files in a Documents and Media Library are `DLFileEntry` objects, their `className` is [`com.liferay.document.library.kernel.model.DLFileEntry`](@platform-ref@/7.0-latest/javadocs/portal-kernel/com/liferay/document/library/kernel/model/DLFileEntry.html). The `className` and `classPK` attributes are required to instantiate the Screenlet. |
-| `classPK` | `number` | The audio file’s unique identifier. The `className` and `classPK` attributes are required to instantiate the Screenlet. |
+| `classPK` | `number` | The audio file's unique identifier. The `className` and `classPK` attributes are required to instantiate the Screenlet. |
 | `autoLoad` | `boolean` | Whether the audio file automatically loads when the Screenlet appears in the app's UI. The default value is `true`. |
 | `offlinePolicy` | `string` | The offline mode setting. See [the Offline section](/develop/reference/-/knowledge_base/7-0/audio-display-screenlet-for-ios#offline) for details. |
 

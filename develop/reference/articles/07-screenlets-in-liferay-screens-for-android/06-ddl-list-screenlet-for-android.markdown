@@ -16,6 +16,11 @@
 
 - Android SDK 4.0 (API Level 15) and above
 
+## Xamarin Requirements [](id=xamarin-requirements)
+
+- Visual Studio 7.2
+- Mono .NET framework 5.4.1.6
+
 ## Features [](id=features)
 
 The DDL List Screenlet has the following features:
@@ -25,6 +30,16 @@ The DDL List Screenlet has the following features:
   with configurable page size.
 - Allows record filtering by creator.
 - Supports i18n in record values.
+
+## JSON Services Used [](id=json-services-used)
+
+Screenlets in Liferay Screens call JSON web services in the portal. This 
+Screenlet calls the following services and methods.
+
+| Service | Method | Notes |
+| ------- | ------ | ----- |
+| `ScreensddlrecordService` (Screens compatibility plugin) | `getDdlRecords` | With `ddlRecordSetId`, or `ddlRecordSetId` and `userId` |
+| `ScreensddlrecordService` (Screens compatibility plugin) | `getDdlRecordsCount` |  |
 
 ## Module [](id=module)
 

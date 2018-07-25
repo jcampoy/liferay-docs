@@ -20,29 +20,45 @@ with your @product@ instance. The last section in this tutorial shows you how to
 do this. 
 
 $$$
-
+<!--
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ABxCUUg7zhs" frameborder="0" allowfullscreen></iframe>
+-->
 
 ## Requirements [](id=requirements)
 
 Liferay Screens for Android includes the Component Library (the Screenlets) and 
 a sample project. It requires the following software:
 
-- Android Studio 2.0 or above.
-- Android SDK 4.0 (API Level 15) or above. Its [AppCompat library](https://developer.android.com/tools/support-library/features.html#v7-appcompat) 
-  (v7:23.0.1) implements the
-  [recycler view](https://developer.android.com/tools/support-library/features.html#v7-recyclerview) 
-  and offers older devices a material look and feel.
-- [Liferay Portal 6.2 CE/EE, 7.0 CE, Liferay DXP](http://www.liferay.com/downloads/liferay-portal/available-releases).
-- Liferay Screens Compatibility Plugin (
-  [CE](http://www.liferay.com/marketplace/-/mp/application/54365664) or 
-  [EE](http://www.liferay.com/marketplace/-/mp/application/54369726), 
-  depending on your portal edition). This app is preinstalled in Liferay 7.0 CE 
-  and Liferay DXP bundles. 
-- Liferay Screens source code. 
+-   Android Studio 2.0 or above.
+-   Android SDK 4.0 (API Level 15) or above. Its 
+    [AppCompat library](https://developer.android.com/tools/support-library/features.html#v7-appcompat) 
+    (v7:23.0.1) implements the
+    [recycler view](https://developer.android.com/tools/support-library/features.html#v7-recyclerview) 
+    and offers older devices a material look and feel.
+-   [Liferay Portal 6.2 CE/EE, 7.0 CE, Liferay DXP](http://www.liferay.com/downloads/liferay-portal/available-releases).
+-   Liferay Screens Compatibility Plugin (
+    [CE](http://www.liferay.com/marketplace/-/mp/application/54365664) or 
+    [EE](http://www.liferay.com/marketplace/-/mp/application/54369726), 
+    depending on your portal edition). This app is preinstalled in Liferay 7.0 CE 
+    and Liferay DXP bundles. 
+-   Liferay Screens source code. 
 
 Liferay Screens for Android uses
 [EventBus](https://github.com/greenrobot/EventBus) internally. 
+
+## Securing JSON Web Services [](id=securing-json-web-services)
+
+Each Screenlet in Liferay Screens calls one or more of @product@'s JSON web 
+services, which are enabled by default. The Screenlet 
+[reference documentation](/develop/reference/-/knowledge_base/7-0/screenlets-in-liferay-screens-for-android) 
+lists the web services that each Screenlet calls. To use a Screenlet, its web 
+services must be enabled in the portal. It's possible, however, to disable the 
+web services needed by Screenlets you're not using. For instructions on this, 
+see the tutorial 
+[Configuring JSON Web Services](/develop/tutorials/-/knowledge_base/7-0/portal-configuration-of-json-web-services). 
+You can also use 
+[Service Access Policies](/develop/tutorials/-/knowledge_base/7-0/service-access-policies) 
+for more fine-grained control over accessible services. 
 
 ## Using Gradle to Install Liferay Screens [](id=configuring-your-project-with-gradle)
 
@@ -74,6 +90,31 @@ following screenshot shows the top of an edited `build.gradle` file with the
 Sync Now link highlighted by a red box: 
 
 ![Figure 2: After editing the app module's `build.gradle` file, click *Sync Now* to incorporate the changes in your app.](../../../images/screens-android-gradle-sync.png)
+
+In the case of conflict with the `appcompat-v7` or other support libraries (`com.android.support:appcompat-v7`, `com.android.support:support-v4`), you have 
+several options: 
+
+-   Explicitly add the versions of the conflicting libraries you want to use. 
+    For example: 
+
+        implementation 'com.android.support:design:27.0.2'
+        implementation 'com.android.support:support-media-compat:27.0.2'
+        implementation 'com.android.support:exifinterface:27.0.2'
+
+-   Remove the `com.android.support:appcompat-v7` dependency from your project 
+    and use the one embedded in Liferay Screens. 
+
+-   Exclude the problematic library from Liferay Screens. For example: 
+
+        implementation ('com.liferay.mobile:liferay-screens:+') {
+            exclude group: 'com.android.support:', module: 'design'
+        }
+
+-   Ignore the inspection, adding a comment like this: 
+
+        //noinspection GradleCompatible
+
+-   Ignore the warning--Liferay Screens will work without problems. 
 
 Although we strongly recommend that you use Gradle to install Screens, the 
 following section shows you how to install Screens with Maven. 
@@ -181,8 +222,8 @@ the new file:
 
         <string name="liferay_server">http://10.0.2.2:8080</string>
 
-        <integer name="liferay_company_id">10155</integer>
-        <integer name="liferay_group_id">10182</integer>
+        <string name="liferay_company_id">10155</string>
+        <string name="liferay_group_id">10182</string>
         
         <integer name="liferay_portal_version">70</integer>
 
@@ -220,7 +261,7 @@ interact with a @product@ instance's DDLs. You can see an additional example
 
     <!-- Change these values for your @product@ installation -->
     
-    <integer name="liferay_recordset_id">20935</integer>
+    <string name="liferay_recordset_id">20935</string>
     <string name="liferay_recordset_fields">Title</string>
 
 Super! Your Android project's ready for Liferay Screens.

@@ -13,7 +13,7 @@ You can specify a different root directory from within
 System Settings, open the *Menu*
 (![Menu](../../images/icon-menu.png)) and navigate to *Control Panel &rarr;
 Configuration &rarr; System Settings*. From System Settings, navigate to
-*Platform* and then search for and select the entry *Simple File System Store*.
+*Foundation* and then search for and select the entry *Simple File System Store*.
 For the store's *Root dir* value, specify a path relative to
 [Liferay Home](/discover/deployment/-/knowledge_base/7-0/installing-product#liferay-home)
 or an absolute path; then click the *Update* button. The document library store
@@ -251,7 +251,7 @@ Note that this configuration doesn't perform as well as the advanced file system
 store, because you're storing documents in a database instead of on the file
 system. But it does have the benefit of clustering well.
 For example, you can store documents and media files in your @product@ instance's
-database using DBStore. To enable DBStore, add the following [`dl.store.impl`](https://docs.liferay.com/portal/7.0/propertiesdoc/portal.properties.html#Document%20Library%20Service)
+database using DBStore. To enable DBStore, add the following [`dl.store.impl`](@platform-ref@/7.0-latest/propertiesdoc/portal.properties.html#Document%20Library%20Service)
 portal property to a `portal-ext.properties` file in your [Liferay Home](/discover/deployment/-/knowledge_base/7-0/installing-product#liferay-home):
 
     dl.store.impl=com.liferay.portal.store.db.DBStore
@@ -379,7 +379,7 @@ limitation.
 
 $$$
 
-Please refer to the [Document Library property reference](https://docs.liferay.com/portal/7.0/propertiesdoc/portal.properties.html#Document%20Library%20Portlet)
+Please refer to the [Document Library property reference](@platform-ref@/7.0-latest/propertiesdoc/portal.properties.html#Document%20Library%20Portlet)
 for a complete list of supported customizations. You can customize features such
 as the maximum allowed size of documents and media files, the list of allowed
 file extensions, which types of files should be indexed, and more.

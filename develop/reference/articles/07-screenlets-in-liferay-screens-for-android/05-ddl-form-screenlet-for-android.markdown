@@ -16,6 +16,11 @@
 
 - Android SDK 4.0 (API Level 15) and above
 
+## Xamarin Requirements [](id=xamarin-requirements)
+
+- Visual Studio 7.2
+- Mono .NET framework 5.4.1.6
+
 ## Features [](id=features)
 
 DDL Form Screenlet shows a set of fields that can be filled in by the user. 
@@ -47,7 +52,20 @@ Screenlet. They are listed here:
 
 - Nested fields in the data definition aren't supported.
 - Selection of multiple items in the Radio and Select data types isn't 
-  supported.
+  supported. 
+
+## JSON Services Used [](id=json-services-used)
+
+Screenlets in Liferay Screens call JSON web services in the portal. This 
+Screenlet calls the following services and methods.
+
+| Service | Method | Notes |
+| ------- | ------ | ----- |
+| `ScreensddlrecordService` (Screens compatibility plugin) | `getDDMStructureVersion` | Load form |
+| `ScreensddlrecordService` (Screens compatibility plugin) | `getDdlRecord` | Load record |
+| `DLAppService` | `addFileEntry` | Upload document |
+| `DDLRecordService` | `addRecord` | Submit form |
+| `DDLRecordService` | `updateRecord` | Update form |
 
 ## Module [](id=module)
 

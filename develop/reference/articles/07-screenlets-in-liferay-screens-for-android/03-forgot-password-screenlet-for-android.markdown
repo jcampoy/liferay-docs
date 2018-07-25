@@ -14,6 +14,11 @@
 
 - Android SDK 4.0 (API Level 15) and above
 
+## Xamarin Requirements [](id=xamarin-requirements)
+
+- Visual Studio 7.2
+- Mono .NET framework 5.4.1.6
+
 ## Features [](id=features)
 
 The Forgot Password Screenlet sends an email to registered users with their 
@@ -23,6 +28,17 @@ The available authentication methods are
 - Email address
 - Screen name
 - User id
+
+## JSON Services Used [](id=json-services-used)
+
+Screenlets in Liferay Screens call JSON web services in the portal. This 
+Screenlet calls the following services and methods.
+
+| Service | Method | Notes |
+| ------- | ------ | ----- |
+| `UserService` | `sendPasswordByEmailAddress` |  |
+| `UserService` | `sendPasswordByUserId` |  |
+| `UserService` | `sendPasswordByScreenName` |  |
 
 ## Module [](id=module)
 

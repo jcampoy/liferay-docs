@@ -9,6 +9,11 @@
 
 - Android SDK 4.0 (API Level 15) and above
 
+## Xamarin Requirements [](id=xamarin-requirements)
+
+- Visual Studio 7.2
+- Mono .NET framework 5.4.1.6
+
 ## Features [](id=features)
 
 Web Content List Screenlet has the following features:
@@ -20,6 +25,16 @@ Web Content List Screenlet has the following features:
   [fluent pagination](http://www.iosnomad.com/blog/2014/4/21/fluent-pagination) 
   with configurable page size. 
 - Supports i18n in web content values. 
+
+## JSON Services Used [](id=json-services-used)
+
+Screenlets in Liferay Screens call JSON web services in the portal. This 
+Screenlet calls the following services and methods.
+
+| Service | Method | Notes |
+| ------- | ------ | ----- |
+| `JournalArticleService` | `getJournalArticles` |  |
+| `JournalArticleService` | `getJournalArticlesCount` |  |
 
 ## Module [](id=module)
 

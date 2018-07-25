@@ -228,7 +228,7 @@ significant files:
 
 - `build.xml`: The Ant build file for the Ext plugin project. 
 
-- [`docroot/WEB-INF/liferay-plugin-package.properties`](https://docs.liferay.com/portal/7.0/propertiesdoc/liferay-plugin-package_7_0_0.properties.html):
+- [`docroot/WEB-INF/liferay-plugin-package.properties`](@platform-ref@/7.0-latest/propertiesdoc/liferay-plugin-package_7_0_0.properties.html):
 Contains plugin-specific properties, including the plugin's display name,
 version, author, and license type. 
 
@@ -399,7 +399,7 @@ targets report success or failure.
 Frequently, you'll want to add further customizations to your original Ext
 plugin. You can make unlimited customizations to an Ext plugin that has already
 been deployed, but the redeployment process is different from other project
-types. You’ll learn more on redeploying your Ext plugin next.
+types. You'll learn more on redeploying your Ext plugin next.
 
 ### Redeployment [](id=redeployment)
 
@@ -523,6 +523,15 @@ to the original file in @product@:
       configure specific data sources or swap the implementation of a default
       service with a custom one.
     - **Original file in @product@:** `portal-impl/src/META-INF/*-spring.xml`
+- `ext-impl/src/META-INF/portal-log4j-ext.xml`
+    - **Description:** Allows overriding the Log4j configuration. It can be used
+      to configure appenders for log file location, naming, and rotation. See
+      the
+      [Log4j XML Configuration Primer](https://wiki.apache.org/logging-log4j/Log4jXmlFormat). 
+      [Increasing or decreasing the log level of a class or class hierarchy](/develop/tutorials/-/knowledge_base/7-0/adjusting-module-logging)
+      is best done outside of an Ext plugin, in @product@'s' UI or a Log4j XML
+      file in a module or the `osgi/log4j` folder. 
+    - **Original file in Liferay:** `portal-impl/src/META-INF/portal-log4j.xml`
 - `ext-web/docroot/WEB-INF/portlet-ext.xml`
     - **Description:** Overrides the core portlets' declarations. It's most commonly
       used to change the init parameters or the roles specified. 
@@ -530,7 +539,7 @@ to the original file in @product@:
 - `ext-web/docroot/WEB-INF/liferay-portlet-ext.xml`
     - **Description:** Overrides the Liferay-specific core portlets'
       declarations. It core portlets included in @product@. Refer to the
-      [liferay-portlet-app_7_0_0.dtd](@platform-ref@/7.0/definitions/liferay-portlet-app_7_0_0.dtd.html)
+      [liferay-portlet-app_7_0_0.dtd](@platform-ref@/7.0-latest/definitions/liferay-portlet-app_7_0_0.dtd.html)
       file for details on all the available options. Use this file with care;
       the code of the portlets may be assuming some of these options to be set
       to certain values. 
@@ -540,7 +549,7 @@ to the original file in @product@:
       for adding applications and the categories in which they're organized.
     - **Original file in @product@:** `portal-web/docroot/WEB-INF/liferay-display.xml`
 
-You’ll learn how to deploy your Ext plugin in production next.
+You'll learn how to deploy your Ext plugin in production next.
 
 ## Deploying in Production [](id=deploying-in-production)
 

@@ -6,18 +6,15 @@ this sense, it's similar to informing Liferay's permissions framework about a
 new resource. All you have to do is invoke a method of the asset framework that
 associates an `AssetEntry` with the entity so Liferay can keep track of
 the entity as an asset. When it's time to update the entity, you update the
-asset at the same time. 
-<!--To see how to asset-enable entities in a working example
-portlet, visit the Learning
-Path [Asset Enabling Custom Entities](/develop/learning-paths/mvc/-/knowledge_base/6-2/asset-enabling-custom-entities).
--->
+asset at the same time.  To see how to asset-enable entities in a working
+example portlet, visit the tutorial
+[Assets: Integrating with Liferay's Framework](/develop/tutorials/-/knowledge_base/7-0/assets-integrating-with-liferays-framework).
 
 To leverage assets, you must also implement indexers for your portlet's
 entities. Liferay's asset framework uses indexers to manage assets. 
-<!--  For
-instructions on
-creating an indexer in a working example portlet, see the learning path [Enabling Search and Indexing](/develop/learning-paths/mvc/-/knowledge_base/6-2/enabling-search-and-indexing).
--->
+For instructions on creating an indexer in a working example portlet, see the
+tutorial
+[Enabling Search and Indexing](/develop/tutorials/-/knowledge_base/7-0/enabling-search-and-indexing-for-guestbooks).
 
 This tutorial shows you how to enable assets for your custom entities and
 implement indexes for them. It's time to get started! 
@@ -104,7 +101,7 @@ Here are descriptions of each of the `updateEntry` method's parameters:
     Low numbers take priority over higher numbers.
 
 The following code from Liferay's Wiki application's
-[WikiPageLocalServiceImpl](https://github.com/liferay/liferay-portal/blob/master/modules/apps/collaboration/wiki/wiki-service/src/main/java/com/liferay/wiki/service/impl/WikiPageLocalServiceImpl.java)
+[WikiPageLocalServiceImpl](https://github.com/liferay/liferay-portal/blob/7.0.6-ga7/modules/apps/collaboration/wiki/wiki-service/src/main/java/com/liferay/wiki/service/impl/WikiPageLocalServiceImpl.java)
 Java class demonstrates invoking the `updateEntry` method on the wiki page
 entity called `WikiPage`. In your `add-` method, you could invoke `updateEntry`
 after adding your entity's resources. Likewise, in your `update-` method, you
@@ -169,14 +166,13 @@ In your `-LocalServiceImpl` class, you can write similar code. Replace the
 +$$$
 
 **Important:** In order for Liferay's Asset Publisher application to show your
-entity, the entity must have an Asset Renderer. 
-<!-- To learn how to implement
-an Asset Renderer for your custom entity, refer to Learning Path
-[Implementing Asset Renderers](/develop/learning-paths/mvc/-/knowledge_base/6-2/implementing-asset-renderers).-->
-Note also that an Asset Renderer is how you show a user the components of your
-entity in the Asset Publisher. On deploying your portlet with asset, indexer,
-and asset rendering implementations in place, an Asset Publisher can show your
-custom entities!
+entity, the entity must have an Asset Renderer. To learn how to implement an
+Asset Renderer for your custom entity, refer to the
+[Rendering an Asset](/develop/tutorials/-/knowledge_base/7-0/rendering-an-asset)
+tutorial. Note also that an Asset Renderer is how you show a user the components
+of your entity in the Asset Publisher. On deploying your portlet with asset,
+indexer, and asset rendering implementations in place, an Asset Publisher can
+show your custom entities!
 
 $$$
 

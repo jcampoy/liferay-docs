@@ -8,7 +8,7 @@ entities during the Staging process. For example, the Bookmarks application
 manages
 [BookmarksEntry](@app-ref@/collaboration/latest/javadocs/com/liferay/bookmarks/model/BookmarksEntry.html)s
 and
-[BookmarksFolder](@app-ref/collaboration/latest/javadocs/com/liferay/bookmarks/model/BookmarksFolder.html)s,
+[BookmarksFolder](@app-ref@/collaboration/latest/javadocs/com/liferay/bookmarks/model/BookmarksFolder.html)s,
 and both implement the `StagedModel` interface. Once you've configured your
 staged models, you can create staged model data handlers, which supply
 information about a staged model (entity) and its referenced content to the
@@ -97,7 +97,7 @@ Because the UUID always remains the same, it's unique across multiple systems.
 Why is this so important?
 
 Suppose you're using
-[remote staging](/discover/portal/-/knowledge_base/7-0/enabling-staging#enabling-remote-live-staging)
+[remote staging](/discover/portal/-/knowledge_base/7-0/enabling-remote-live-staging)
 and you create a new entity on your local staging site and publish it to your
 remote live site. What happens when you go back to modify the entity on your
 local site and want to publish those changes? Without a UUID, the Staging

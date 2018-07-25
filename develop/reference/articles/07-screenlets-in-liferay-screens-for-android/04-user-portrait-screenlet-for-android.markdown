@@ -10,11 +10,25 @@
 
 - Android SDK 4.0 (API Level 15) and above
 
+## Xamarin Requirements [](id=xamarin-requirements)
+
+- Visual Studio 7.2
+- Mono .NET framework 5.4.1.6
+
 ## Features [](id=features)
 
 The User Portrait Screenlet shows the users' profile pictures. If a user
 doesn't have a profile picture, a placeholder image is shown. The Screenlet
 allows the profile picture to be edited via the `editable` property. 
+
+## JSON Services Used [](id=json-services-used)
+
+Screenlets in Liferay Screens call JSON web services in the portal. This 
+Screenlet calls the following services and methods.
+
+| Service | Method | Notes |
+| ------- | ------ | ----- |
+| `UserService` | `getUserById` |  |
 
 ## Module [](id=module)
 

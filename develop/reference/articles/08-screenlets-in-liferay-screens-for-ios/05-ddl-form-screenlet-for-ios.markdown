@@ -4,8 +4,8 @@
 
 ## Requirements [](id=requirements)
 
-- Xcode 7.3
-- iOS 9 SDK
+- Xcode 9.0
+- iOS 11 SDK
 - Liferay Portal 6.2 (CE or EE), Liferay 7.0 CE, Liferay DXP 
 - Liferay Screens Compatibility Plugin
   ([CE](http://www.liferay.com/marketplace/-/mp/application/54365664) or 
@@ -15,7 +15,12 @@
 
 ## Compatibility [](id=compatibility)
 
-- iOS 7 and above
+- iOS 9 and above
+
+## Xamarin Requirements [](id=xamarin-requirements)
+
+- Visual Studio 7.2
+- Mono .NET framework 5.4.1.6
 
 ## Features [](id=features)
 
@@ -47,7 +52,20 @@ Screenlet. They are listed here:
 
 - Nested fields in the data definition aren't supported.
 - Selection of multiple items in the Radio and Select data types isn't supported 
-  yet.
+  yet. 
+
+## JSON Services Used [](id=json-services-used)
+
+Screenlets in Liferay Screens call JSON web services in the portal. This 
+Screenlet calls the following services and methods.
+
+| Service | Method | Notes |
+| ------- | ------ | ----- |
+| `DDMStructureService` | `getStructureWithStructureId` | Load form |
+| `ScreensddlrecordService` (Screens compatibility plugin) | `getDdlRecord` | Load record |
+| `DLAppService` | `addFileEntry` | Upload document |
+| `DDLRecordService` | `addRecord` | Submit form |
+| `DDLRecordService` | `updateRecord` | Update form |
 
 ## Module [](id=module)
 
